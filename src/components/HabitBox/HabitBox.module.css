@@ -1,0 +1,18 @@
+.habit-box{
+    display: flex;
+    flex-flow: column;
+    width: 200px;
+    height: 125px;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--COLOR-secondary-bg);
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+    0 1px 3px 0 rgb(0 0 0 / 12%);
+}
+
+.habit-labels{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+}

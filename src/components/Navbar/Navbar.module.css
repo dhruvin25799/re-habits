@@ -1,0 +1,27 @@
+.nav{
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    
+}
+
+.nav-brand h1{
+    font-family: var(--FONT-brand);
+}
+
+.nav-cta{
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+.nav-cta li{
+    cursor: pointer;
+}

@@ -1,0 +1,31 @@
+.sidebar{
+    display: flex;
+    flex-flow: column;
+}
+
+.sidebar-links{
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    gap: 3rem;
+}
+
+.sidebar-links li a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--COLOR-text);
+}
+
+.sidebar-links li a[class="active"]{
+    font-weight: 900;
+}
+
+.sidebar-profile{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+}
