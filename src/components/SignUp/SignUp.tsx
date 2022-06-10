@@ -1,32 +1,92 @@
 import styles from "./SignUp.module.css";
 import { Button } from "../Button/Button";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
+import React, { useReducer } from "react";
+import { authActions, registerUserThunk } from "../../store/auth-slice";
+import {
+  signUpReducer,
+  signUpInitialState,
+} from "../../reducers/inputReducers";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   toggle: () => void;
 };
 
-export const SignUp = ({toggle} : Props) => {
+export const SignUp = ({ toggle }: Props) => {
+  const [signUpInputState, signUpInputDispatch] = useReducer(
+    signUpReducer,
+    signUpInitialState
+  );
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const registerStatus = useAppSelector((state) => state.auth.status);
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+    dispatch(registerUserThunk(signUpInputState));
+  };
+  if (registerStatus === "success") {
+    dispatch(authActions.resetStatus);
+    navigate("/home/", { replace: true });
+  }
   return (
     <>
       <div className={styles["sign-in"]}>
         <h3>Sign Up</h3>
-        <form className={styles["input-form"]}>
+        <form className={styles["input-form"]} onSubmit={submitHandler}>
           <div className={styles["input-control"]}>
-            <input type="text" placeholder="First Name" required />
+            <input
+              type="text"
+              placeholder="First Name"
+              required
+              value={signUpInputState.fName}
+              onChange={(e) =>
+                signUpInputDispatch({ type: "FNAME", payload: e.target.value })
+              }
+            />
           </div>
           <div className={styles["input-control"]}>
-            <input type="text" placeholder="Last Name" required />
+            <input
+              type="text"
+              placeholder="Last Name"
+              required
+              value={signUpInputState.lName}
+              onChange={(e) =>
+                signUpInputDispatch({ type: "LNAME", payload: e.target.value })
+              }
+            />
           </div>
           <div className={styles["input-control"]}>
-            <input type="email" placeholder="Email" required />
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              value={signUpInputState.email}
+              onChange={(e) =>
+                signUpInputDispatch({ type: "EMAIL", payload: e.target.value })
+              }
+            />
           </div>
           <div className={styles["input-control"]}>
-            <input type="password" placeholder="Password" required />
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              value={signUpInputState.password}
+              onChange={(e) =>
+                signUpInputDispatch({
+                  type: "PASSWORD",
+                  payload: e.target.value,
+                })
+              }
+            />
           </div>
           <Button>Submit</Button>
         </form>
         <div>
-          <Button type="link" onClick={toggle}>Already have an account?</Button>
+          <Button type="link" onClick={toggle}>
+            Already have an account?
+          </Button>
         </div>
       </div>
     </>
