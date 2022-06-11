@@ -1,6 +1,6 @@
 import styles from "../SignUp/SignUp.module.css";
 import { Button } from "../Button/Button";
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import {
   signInReducer,
   signInInitialState,
@@ -21,14 +21,16 @@ export const SignIn = ({ toggle }: Props) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const loginStatus = useAppSelector((state) => state.auth.status);
-  if (loginStatus === "success") {
-    dispatch(authActions.resetStatus());
-    navigate("/home/", { replace: true });
-  }
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(loginUserThunk(signInInputState));
   };
+  useEffect(() => {
+    if (loginStatus === "success") {
+      dispatch(authActions.resetStatus());
+      navigate("/home/", { replace: true });
+    }
+  }, [loginStatus, navigate, dispatch]);
   return (
     <>
       <div className={styles["sign-in"]}>

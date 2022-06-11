@@ -1,7 +1,7 @@
 import styles from "./SignUp.module.css";
 import { Button } from "../Button/Button";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { authActions, registerUserThunk } from "../../store/auth-slice";
 import {
   signUpReducer,
@@ -25,10 +25,13 @@ export const SignUp = ({ toggle }: Props) => {
     e.preventDefault();
     dispatch(registerUserThunk(signUpInputState));
   };
-  if (registerStatus === "success") {
-    dispatch(authActions.resetStatus);
-    navigate("/home/", { replace: true });
-  }
+  useEffect(() => {
+    if (registerStatus === "success") {
+      dispatch(authActions.resetStatus);
+      navigate("/home/", { replace: true });
+    }
+  }, [registerStatus, dispatch, navigate]);
+
   return (
     <>
       <div className={styles["sign-in"]}>

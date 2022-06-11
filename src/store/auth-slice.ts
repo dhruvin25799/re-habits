@@ -1,23 +1,51 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { IauthState, IsignUpState, IsignInState } from "../global/types";
-import { loginUser, registerUser } from "../helpers/authFunctions";
 import { toast } from "react-toastify";
+import { userDataActions } from "./userData-slice";
+import axios from "axios";
 
 const initialState: IauthState = {
   isLoggedIn: false,
   token: "",
   status: "idle",
-  userData: {},
 };
 
 export const registerUserThunk = createAsyncThunk(
   "/register",
-  (inputState: IsignUpState, thunkAPI) => registerUser(inputState, thunkAPI)
+  async (inputState: IsignUpState, { dispatch, rejectWithValue }) => {
+    try {
+      const response = await axios.post("/api/register", {
+        firstName: inputState.fName,
+        lastName: inputState.lName,
+        email: inputState.email,
+        password: inputState.password,
+      });
+      if (response.status === 200) {
+        dispatch(userDataActions.setUserData(response.data.user));
+        return response.data;
+      }
+    } catch (err: any) {
+      return rejectWithValue(err.response.data.error);
+    }
+  }
 );
 
 export const loginUserThunk = createAsyncThunk(
   "/login",
-  (inputState: IsignInState, thunkAPI) => loginUser(inputState, thunkAPI)
+  async (inputState: IsignInState, { dispatch, rejectWithValue }) => {
+    try {
+      const response = await axios.post("/api/login", {
+        email: inputState.email,
+        password: inputState.password,
+      });
+      if (response.status === 200) {
+        dispatch(userDataActions.setUserData(response.data.user));
+        return response.data;
+      }
+    } catch (err: any) {
+      return rejectWithValue(err.response.data.error);
+    }
+  }
 );
 
 export const authSlice = createSlice({
@@ -26,6 +54,11 @@ export const authSlice = createSlice({
   reducers: {
     resetStatus: (state: IauthState) => {
       state.status = "idle";
+    },
+    logout: (state: IauthState) => {
+      state.isLoggedIn = false;
+      state.status = "idle";
+      state.token = "";
     },
   },
   extraReducers: (builder) => {
@@ -37,7 +70,6 @@ export const authSlice = createSlice({
       state.status = "success";
       const data = action.payload;
       state.token = data.encodedToken;
-      state.userData = data.user;
     });
     builder.addCase(registerUserThunk.rejected, (state, action: any) => {
       state.status = "failed";
@@ -51,7 +83,6 @@ export const authSlice = createSlice({
       state.status = "success";
       const data = action.payload;
       state.token = data.encodedToken;
-      state.userData = data.user;
     });
     builder.addCase(loginUserThunk.rejected, (state, action: any) => {
       state.status = "failed";

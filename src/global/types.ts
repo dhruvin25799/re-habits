@@ -1,8 +1,19 @@
+export interface IuserData {
+  _id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+}
+
+export interface IhabitData {
+  habits: object;
+  labels: string[];
+}
+
 export interface IauthState {
   isLoggedIn: boolean;
   token: string;
   status: string;
-  userData: {};
 }
 
 export interface IsignUpState {

@@ -1,13 +1,15 @@
+import { useAppSelector } from "../../hooks/redux-hooks";
 import { Button } from "../Button/Button";
 import { HabitBox } from "../HabitBox/HabitBox";
 import { StatBox } from "../StatBox/StatBox";
 import styles from "./HomeStats.module.css";
 
 export const HomeStats = () => {
+  const {firstName, lastName} = useAppSelector(state => state.userData);
   return (
     <section className={styles["stats-main"]}>
       <div className={styles["stats-greeting"]}>
-        <h2>Hello, Dhruvin Mehta👋</h2>
+        <h2>Hello, {firstName} {lastName}👋</h2>
       </div>
       <div className={styles["stats-overview"]}>
         <StatBox />

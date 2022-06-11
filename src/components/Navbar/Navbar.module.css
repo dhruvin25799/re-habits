@@ -25,3 +25,12 @@
 .nav-cta li{
     cursor: pointer;
 }
+
+.nav-cta li a{
+    text-decoration: none;
+    color: var(--COLOR-text);
+}
+
+a[class="active"]{
+    font-weight: 900;
+}

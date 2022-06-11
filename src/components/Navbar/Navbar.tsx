@@ -1,9 +1,9 @@
-import React from "react";
 import styles from "./Navbar.module.css";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useTheme } from "../../context/theme-context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
 export const Navbar = () => {
   const { isDark, toggle } = useTheme();
   return (
@@ -24,8 +24,12 @@ export const Navbar = () => {
         </div>
         <div>Nav_Search</div>
         <menu className={styles["nav-cta"]}>
-          <li>Home</li>
-          <li>Contact Us</li>
+          <li>
+            <NavLink to="/home/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact">Contact Us</NavLink>
+          </li>
           <li onClick={toggle}>
             <FontAwesomeIcon icon={isDark ? faSun : faMoon} size="lg" />
           </li>

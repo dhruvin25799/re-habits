@@ -7,8 +7,12 @@ import {
   faPowerOff,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
+import { useAppDispatch } from "../../hooks/redux-hooks";
+import { authActions } from "../../store/auth-slice";
+import { logout } from "../../helpers/logout";
 
 export const Sidebar = () => {
+  const dispatch = useAppDispatch();
   return (
     <aside className={styles["sidebar"]}>
       <menu className={styles["sidebar-links"]}>
@@ -33,7 +37,7 @@ export const Sidebar = () => {
       </menu>
       <div className={styles["sidebar-profile"]}>
         <div>Dhruvin Mehta</div>
-        <FontAwesomeIcon icon={faPowerOff} />
+        <FontAwesomeIcon icon={faPowerOff} onClick={() => logout(dispatch)} />
       </div>
     </aside>
   );
