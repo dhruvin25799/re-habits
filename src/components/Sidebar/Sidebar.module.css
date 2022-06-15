@@ -1,6 +1,7 @@
 .sidebar{
     display: flex;
     flex-flow: column;
+    gap: 4rem;
 }
 
 .sidebar-links{
@@ -27,5 +28,12 @@
     flex-flow: row;
     align-items: center;
     gap: 10px;
-    margin-top: auto;
+}
+
+.sidebar-profile svg{
+    cursor: pointer;
+}
+
+.sidebar-profile svg:hover{
+    color: var(--COLOR-primary);
 }

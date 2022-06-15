@@ -1,23 +1,31 @@
-.button{
-    padding: 10px 1rem;
-    background-color: var(--COLOR-primary);
-    border: none;
-    border-radius: 5px;
-    color: var(--COLOR-white);
-    transition: all 0.3s ease;
-    cursor: pointer;
+.button {
+  padding: 10px 1rem;
+  background-color: var(--COLOR-primary);
+  border: none;
+  border-radius: 5px;
+  color: var(--COLOR-white);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.button.link{
-    padding: 0;
-    background-color: transparent;
-    color: var(--COLOR-text);
+.button:disabled{
+  cursor: not-allowed;
 }
 
-.button.secondary{
-    background-color: var(--COLOR-secondary);
+.button.link {
+  padding: 0;
+  background-color: transparent;
+  color: var(--COLOR-text);
+}
+.button.link a {
+  text-decoration: none;
+  color: var(--COLOR-text);
 }
 
-.button:hover{
-    opacity: 0.8;
+.button.secondary {
+  background-color: var(--COLOR-secondary);
+}
+
+.button:hover {
+  opacity: 0.8;
 }

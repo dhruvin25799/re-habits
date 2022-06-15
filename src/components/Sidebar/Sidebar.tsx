@@ -5,10 +5,11 @@ import {
   faBoxArchive,
   faRecycle,
   faPowerOff,
+  faTags,
+  faCalendarPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/redux-hooks";
-import { authActions } from "../../store/auth-slice";
 import { logout } from "../../helpers/logout";
 
 export const Sidebar = () => {
@@ -20,6 +21,18 @@ export const Sidebar = () => {
           <NavLink to="/home/">
             <FontAwesomeIcon icon={faHouseUser} size="lg" />
             Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/home/add">
+            <FontAwesomeIcon icon={faCalendarPlus} size="lg" />
+            Add Habit
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/home/labels">
+            <FontAwesomeIcon icon={faTags} size="lg" />
+            Labels
           </NavLink>
         </li>
         <li>

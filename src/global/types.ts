@@ -1,39 +1,66 @@
-export interface IuserData {
+export type IuserData = {
   _id: string;
   email: string;
   firstName: string;
   lastName: string;
-}
+};
 
-export interface IhabitData {
-  habits: object;
+export type IhabitData = {
+  habits: IsingleHabit[];
   labels: string[];
-}
+  status?: string;
+};
 
-export interface IauthState {
+export type IsingleHabit = {
+  _id: string;
+  name: string;
+  startDate: string;
+  endDate: string;
+  labels: string[];
+  markedAsDone: string[];
+};
+
+export type IauthState = {
   isLoggedIn: boolean;
   token: string;
   status: string;
-}
+};
 
-export interface IsignUpState {
+export type IsignUpState = {
   fName: string;
   lName: string;
   email: string;
   password: string;
-}
+};
 
-export interface IsignUpReducerAction {
+export type IsignUpReducerAction = {
   type: string;
   payload: string;
-}
+};
 
-export interface IsignInState {
+export type IhabitFormReducerAction = {
+  type: string;
+  payload: string;
+};
+
+export type IsignInState = {
   email: string;
   password: string;
-}
+};
 
-export interface IsignInReducerAction {
+export type IsignInReducerAction = {
   type: string;
   payload: string;
-}
+};
+
+export type IhabitInput = {
+  name: string;
+  startDate: string;
+  endDate: string;
+  labels: string[];
+};
+
+export type IhabitEditFormAction = {
+  type: "NAME" | "START_DATE" | "END_DATE" | "LABEL_ADD" | "LABEL_REMOVE";
+  payload: string;
+};

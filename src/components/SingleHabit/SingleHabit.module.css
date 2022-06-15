@@ -1,0 +1,81 @@
+.habit-main{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.habit-header{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.habit-header h2{
+    font-family: var(--FONT-brand);
+    letter-spacing: 5px;
+}
+
+.habit-labels{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+}
+
+.habit-labels p{
+    font-size: x-small;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--COLOR-tertiary);
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+    0 1px 3px 0 rgb(0 0 0 / 12%);
+}
+
+.habit-cta{
+    display: flex;
+    flex-flow: row;
+    gap: 10px;
+}
+
+.habit-cta a, svg{
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--COLOR-text);
+}
+
+.habit-cta a:hover{
+    color: var(--COLOR-primary);
+}
+
+.habit-cta svg:hover{
+    color: var(--COLOR-primary);
+}
+
+.habit-calendar{
+    width: 100% !important;
+    background-color: var(--COLOR-secondary-bg) !important;
+    color: var(--COLOR-text) !important;
+}
+
+.habit-calendar button{
+    background-color: var(--COLOR-secondary-bg) !important;
+    color: var(--COLOR-text) !important;
+}
+
+.habit-calendar button:disabled{
+    background-color: var(--COLOR-secondary-bg) !important;
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.calendar-tile{
+    display: flex;
+    flex-flow: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar-tile svg{
+    color: var(--COLOR-primary) !important;
+}

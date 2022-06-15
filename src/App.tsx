@@ -9,6 +9,10 @@ import { Footer } from "./components/Footer/Footer";
 import { RequiresAuth } from "./components/RequiresAuth/RequiresAuth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { HabitForm } from "./components/HabitForm/HabitForm";
+import { LabelsList } from "./components/LabelsList/LabelsList";
+import { SingleHabit } from "./components/SingleHabit/SingleHabit";
+import { HabitEditForm } from "./components/HabitEditForm/HabitEditForm";
 
 function App() {
   const { isDark } = useTheme();
@@ -26,8 +30,12 @@ function App() {
           }
         >
           <Route path="" element={<HomeStats />} />
+          <Route path="add" element={<HabitForm />} />
           <Route path="archive" element={<p>Archive</p>} />
           <Route path="trash" element={<p>Trash</p>} />
+          <Route path="labels" element={<LabelsList />} />
+          <Route path="habit/:habitId" element={<SingleHabit/>}/>
+          <Route path="habit/edit/:habitId" element={<HabitEditForm/>}/>
         </Route>
       </Routes>
       <Footer />

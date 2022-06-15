@@ -1,0 +1,61 @@
+.habit-form-main{
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+    width: 100%;
+    align-items: center;
+}
+
+.habit-form-heading h2{
+    font-family: var(--FONT-brand);
+    letter-spacing: 5px;
+}
+
+.habit-form-form{
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 10px;;
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+    0 1px 3px 0 rgb(0 0 0 / 12%);
+}
+
+.input-control{
+    display: flex;
+    flex-flow: column;
+    gap: 5px;
+}
+
+.input-control input, select{
+    background-color: var(--COLOR-secondary-bg);
+    color: var(--COLOR-text);
+    outline: none;
+    border: 1px solid var(--COLOR-border);
+    border-radius: 5px;
+    padding: 10px;
+    width: 400px;
+}
+
+.error-text{
+    font-size: 10px;
+    color: var(--COLOR-primary);
+}
+
+.label-checkbox-control{
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    gap: 7px;
+}
+
+.label-checkbox-control li{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.label-checkbox-control li input{
+    width: auto;
+}

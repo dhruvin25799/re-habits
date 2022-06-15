@@ -1,0 +1,30 @@
+.label-box{
+    width: 100px;
+    height: 100px;
+    background-color: var(--COLOR-secondary-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+    0 1px 3px 0 rgb(0 0 0 / 12%);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.label-box:hover{
+    background-color: var(--COLOR-tertiary);
+    cursor: pointer;
+}
+
+.label-box:hover p{
+    display: none;
+}
+
+.label-box:hover svg{
+    display: block;
+}
+
+.label-box svg{
+    display: none;
+}

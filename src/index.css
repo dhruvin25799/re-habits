@@ -39,3 +39,8 @@ body {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+
+button.react-calendar__tile.react-calendar__tile--active{
+    background-color: var(--COLOR-secondary) !important;
+    color: var(--COLOR-white) !important;
+}

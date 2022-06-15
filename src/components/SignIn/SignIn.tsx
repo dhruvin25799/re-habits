@@ -61,7 +61,7 @@ export const SignIn = ({ toggle }: Props) => {
               }
             />
           </div>
-          <Button>Submit</Button>
+          <Button>Log In</Button>
         </form>
         <div>
           <Button type="link" onClick={toggle}>

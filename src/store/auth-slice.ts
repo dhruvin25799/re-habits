@@ -3,6 +3,7 @@ import { IauthState, IsignUpState, IsignInState } from "../global/types";
 import { toast } from "react-toastify";
 import { userDataActions } from "./userData-slice";
 import axios from "axios";
+import { habitActions } from "./habit-slice";
 
 const initialState: IauthState = {
   isLoggedIn: false,
@@ -22,6 +23,12 @@ export const registerUserThunk = createAsyncThunk(
       });
       if (response.status === 200) {
         dispatch(userDataActions.setUserData(response.data.user));
+        dispatch(
+          habitActions.setHabitData({
+            habits: response.data.user.habits,
+            labels: response.data.user.labels,
+          })
+        );
         return response.data;
       }
     } catch (err: any) {
@@ -40,6 +47,12 @@ export const loginUserThunk = createAsyncThunk(
       });
       if (response.status === 200) {
         dispatch(userDataActions.setUserData(response.data.user));
+        dispatch(
+          habitActions.setHabitData({
+            habits: response.data.user.habits,
+            labels: response.data.user.labels,
+          })
+        );
         return response.data;
       }
     } catch (err: any) {

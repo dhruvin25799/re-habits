@@ -3,6 +3,9 @@ import {
   IsignUpReducerAction,
   IsignInState,
   IsignInReducerAction,
+  IhabitInput,
+  IhabitFormReducerAction,
+  IhabitEditFormAction,
 } from "../global/types";
 
 export const signUpReducer = (
@@ -47,4 +50,68 @@ export const signInReducer = (
 export const signInInitialState = {
   email: "",
   password: "",
+};
+
+export const habitInputReducer = (
+  state: IhabitInput,
+  action: IhabitFormReducerAction
+) => {
+  switch (action.type) {
+    case "NAME": {
+      return { ...state, name: action.payload };
+    }
+    case "START_DATE": {
+      return { ...state, startDate: action.payload };
+    }
+    case "END_DATE": {
+      return { ...state, endDate: action.payload };
+    }
+    case "LABEL_ADD": {
+      return { ...state, labels: [...state.labels, action.payload] };
+    }
+    case "LABEL_REMOVE": {
+      return {
+        ...state,
+        labels: state.labels.filter((label) => label !== action.payload),
+      };
+    }
+    case "RESET": {
+      return habitInputInitialState;
+    }
+    default:
+      return state;
+  }
+};
+
+export const habitInputInitialState: IhabitInput = {
+  name: "",
+  startDate: "",
+  endDate: "",
+  labels: [],
+};
+
+export const habitEditFormReducer = (
+  state: IhabitInput,
+  action: IhabitEditFormAction
+) => {
+  switch (action.type) {
+    case "NAME": {
+      return { ...state, name: action.payload };
+    }
+    case "START_DATE": {
+      return { ...state, startDate: action.payload };
+    }
+    case "END_DATE": {
+      return { ...state, endDate: action.payload };
+    }
+    case "LABEL_ADD": {
+      return { ...state, labels: [...state.labels, action.payload] };
+    }
+    case "LABEL_REMOVE": {
+      return {
+        ...state,
+        labels: state.labels.filter((label) => label !== action.payload),
+      };
+    }
+  }
 };
