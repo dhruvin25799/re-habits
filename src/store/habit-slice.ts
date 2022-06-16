@@ -92,10 +92,12 @@ export const markedAsDoneThunk = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
+      const date = new Date();
+      date.setHours(0,0,0,0);
       const response = await axios.post(
         "/api/habits/done/" + habit._id,
         {
-          habit,
+          date: date.toISOString(),
         },
         {
           headers: {
