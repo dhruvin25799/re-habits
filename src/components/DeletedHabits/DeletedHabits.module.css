@@ -1,0 +1,43 @@
+.deleted-main{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.deleted-header h2{
+    font-family: var(--FONT-brand);
+    letter-spacing: 5px;
+}
+
+.deleted-list{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+}
+
+.deleted-habit{
+    display: flex;
+    flex-flow: column;
+    width: 200px;
+    height: 125px;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--COLOR-secondary-bg);
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%),
+    0 1px 3px 0 rgb(0 0 0 / 12%);
+}
+
+.deleted-habit button{
+    display: none;
+}
+
+.deleted-habit:hover h3{
+    display: none;
+}
+
+.deleted-habit:hover button{
+    display: block;
+}

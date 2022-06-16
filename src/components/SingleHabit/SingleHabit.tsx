@@ -1,5 +1,5 @@
 import styles from "./SingleHabit.module.css";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
@@ -7,15 +7,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarCheck,
   faTrashCan,
-  faBoxArchive,
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../Button/Button";
-import { markedAsDoneThunk } from "../../store/habit-slice";
+import { deleteHabitThunk, markedAsDoneThunk } from "../../store/habit-slice";
 import { toast } from "react-toastify";
 
 export const SingleHabit = () => {
   const { habitId } = useParams();
+  const navigate = useNavigate();
   const habits = useAppSelector((state) => state.habits.habits);
   const selectedHabit = habits.find((habit) => habit._id === habitId);
   const dispatch = useAppDispatch();
@@ -34,6 +34,10 @@ export const SingleHabit = () => {
         dispatch(markedAsDoneThunk({ habit: selectedHabit, token }));
       }
     };
+    const deleteHabitHandler = () => {
+      dispatch(deleteHabitThunk({ habitId: selectedHabit._id, token }));
+      navigate("/home/", { replace: true });
+    };
     return (
       <>
         <section className={styles["habit-main"]}>
@@ -49,8 +53,11 @@ export const SingleHabit = () => {
               <Link to={"/home/habit/edit/" + selectedHabit._id}>
                 <FontAwesomeIcon icon={faPen} size="lg" />
               </Link>
-              <FontAwesomeIcon icon={faBoxArchive} size="lg" />
-              <FontAwesomeIcon icon={faTrashCan} size="lg" />
+              <FontAwesomeIcon
+                icon={faTrashCan}
+                size="lg"
+                onClick={deleteHabitHandler}
+              />
             </div>
           </div>
           <Calendar
@@ -80,9 +87,11 @@ export const SingleHabit = () => {
                   <Button disabled={true}>Goal has not yet started</Button>
                 </>
               ) : (
-                <>
-                  <Button disabled={true}>Goal has ended</Button>
-                </>
+                new Date() > startDate && (
+                  <>
+                    <Button disabled={true}>Goal has ended</Button>
+                  </>
+                )
               )}
             </>
           )}

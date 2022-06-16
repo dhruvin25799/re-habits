@@ -1,0 +1,23 @@
+.habits-main{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.habits-header h2{
+    font-family: var(--FONT-brand);
+    letter-spacing: 5px;
+}
+
+.habits-filters{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.habits-list{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+}

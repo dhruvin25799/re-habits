@@ -49,3 +49,12 @@
 .habit-box:hover{
     justify-content: space-around
 }
+
+.completed{
+    color: var(--COLOR-secondary);
+}
+
+.pending{
+    font-weight: 600;
+    color: var(--COLOR-primary);
+}

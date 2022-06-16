@@ -8,6 +8,7 @@ export type IuserData = {
 export type IhabitData = {
   habits: IsingleHabit[];
   labels: string[];
+  deleted: IsingleHabit[];
   status?: string;
 };
 
@@ -62,5 +63,15 @@ export type IhabitInput = {
 
 export type IhabitEditFormAction = {
   type: "NAME" | "START_DATE" | "END_DATE" | "LABEL_ADD" | "LABEL_REMOVE";
+  payload: string;
+};
+
+export type IfilterState = {
+  sort: string;
+  filter: string;
+};
+
+export type IfilterAction = {
+  type: "SORT" | "FILTER";
   payload: string;
 };

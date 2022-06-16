@@ -27,6 +27,7 @@ export const registerUserThunk = createAsyncThunk(
           habitActions.setHabitData({
             habits: response.data.user.habits,
             labels: response.data.user.labels,
+            deleted: response.data.user.deleted,
           })
         );
         return response.data;
@@ -51,6 +52,7 @@ export const loginUserThunk = createAsyncThunk(
           habitActions.setHabitData({
             habits: response.data.user.habits,
             labels: response.data.user.labels,
+            deleted: response.data.user.deleted,
           })
         );
         return response.data;

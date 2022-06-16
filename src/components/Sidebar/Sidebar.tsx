@@ -2,11 +2,11 @@ import styles from "./Sidebar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHouseUser,
-  faBoxArchive,
   faRecycle,
   faPowerOff,
   faTags,
   faCalendarPlus,
+  faCalendarCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/redux-hooks";
@@ -24,6 +24,12 @@ export const Sidebar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/home/habits">
+            <FontAwesomeIcon icon={faCalendarCheck} size="lg" />
+            Habits
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/home/add">
             <FontAwesomeIcon icon={faCalendarPlus} size="lg" />
             Add Habit
@@ -33,12 +39,6 @@ export const Sidebar = () => {
           <NavLink to="/home/labels">
             <FontAwesomeIcon icon={faTags} size="lg" />
             Labels
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/home/archive">
-            <FontAwesomeIcon icon={faBoxArchive} size="lg" />
-            Archive
           </NavLink>
         </li>
         <li>

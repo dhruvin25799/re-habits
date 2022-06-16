@@ -13,6 +13,8 @@ import { HabitForm } from "./components/HabitForm/HabitForm";
 import { LabelsList } from "./components/LabelsList/LabelsList";
 import { SingleHabit } from "./components/SingleHabit/SingleHabit";
 import { HabitEditForm } from "./components/HabitEditForm/HabitEditForm";
+import { DeletedHabits } from "./components/DeletedHabits/DeletedHabits";
+import { AllHabits } from "./components/AllHabits/AllHabits";
 
 function App() {
   const { isDark } = useTheme();
@@ -30,12 +32,12 @@ function App() {
           }
         >
           <Route path="" element={<HomeStats />} />
+          <Route path="habits" element={<AllHabits/>}/>
           <Route path="add" element={<HabitForm />} />
-          <Route path="archive" element={<p>Archive</p>} />
-          <Route path="trash" element={<p>Trash</p>} />
           <Route path="labels" element={<LabelsList />} />
-          <Route path="habit/:habitId" element={<SingleHabit/>}/>
-          <Route path="habit/edit/:habitId" element={<HabitEditForm/>}/>
+          <Route path="trash" element={<DeletedHabits />} />
+          <Route path="habit/:habitId" element={<SingleHabit />} />
+          <Route path="habit/edit/:habitId" element={<HabitEditForm />} />
         </Route>
       </Routes>
       <Footer />

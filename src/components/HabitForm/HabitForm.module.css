@@ -28,7 +28,7 @@
     gap: 5px;
 }
 
-.input-control input, select{
+.input-control input, .input-control select{
     background-color: var(--COLOR-secondary-bg);
     color: var(--COLOR-text);
     outline: none;

@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 const initialState: IhabitData = {
   habits: [],
   labels: [],
+  deleted: [],
   status: "idle",
 };
 
@@ -138,6 +139,56 @@ export const editHabitThunk = createAsyncThunk(
   }
 );
 
+export const deleteHabitThunk = createAsyncThunk(
+  "/habit/delete",
+  async (
+    { habitId, token }: { habitId: string; token: string },
+    { rejectWithValue }
+  ) => {
+    try {
+      const response = await axios.post(
+        "/api/habits/delete/" + habitId,
+        {},
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      if (response.status === 200) {
+        return response.data;
+      }
+    } catch (err: any) {
+      rejectWithValue(err.response.data.error);
+    }
+  }
+);
+
+export const restoreHabitThunk = createAsyncThunk(
+  "/habit/restore",
+  async (
+    { habitId, token }: { habitId: string; token: string },
+    { rejectWithValue }
+  ) => {
+    try {
+      const response = await axios.post(
+        "/api/habits/restore/" + habitId,
+        {},
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
+      if (response.status === 200) {
+        return response.data;
+      }
+    } catch (err: any) {
+      rejectWithValue(err.response.data.error);
+    }
+  }
+);
+
 export const habitSlice = createSlice({
   name: "habits",
   initialState,
@@ -148,6 +199,7 @@ export const habitSlice = createSlice({
     setHabitData: (state: IhabitData, action: PayloadAction<IhabitData>) => {
       state.habits = action.payload.habits;
       state.labels = action.payload.labels;
+      state.deleted = action.payload.deleted;
     },
   },
   extraReducers: (builder) => {
@@ -180,6 +232,22 @@ export const habitSlice = createSlice({
     });
     builder.addCase(editHabitThunk.rejected, (state, action) => {
       toast.error("Habit edit Failed");
+    });
+    builder.addCase(deleteHabitThunk.fulfilled, (state, action) => {
+      state.habits = action.payload.habits;
+      state.deleted = action.payload.deleted;
+      toast.success("Habit Deleted");
+    });
+    builder.addCase(deleteHabitThunk.rejected, (state, action) => {
+      toast.error("Habit delete failed");
+    });
+    builder.addCase(restoreHabitThunk.fulfilled, (state, action) => {
+      state.habits = action.payload.habits;
+      state.deleted = action.payload.deleted;
+      toast.success("Habit Restored");
+    });
+    builder.addCase(restoreHabitThunk.rejected, (state, action) => {
+      toast.error("Habit restore failed");
     });
   },
 });

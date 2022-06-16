@@ -38,7 +38,13 @@
     gap: 10px;
 }
 
-.habit-cta a, svg{
+.habit-cta a{
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--COLOR-text);
+}
+
+.habit-cta svg{
     cursor: pointer;
     text-decoration: none;
     color: var(--COLOR-text);
