@@ -1,10 +1,15 @@
 import styles from "./StatBox.module.css";
 
-export const StatBox = () => {
+type Props = {
+  heading: string,
+  value: number,
+}
+
+export const StatBox = ({heading, value}: Props) => {
     return (
       <div className={styles["stat-box"]}>
-        <h3>Completed</h3>
-        <h1>2</h1>
+        <h3>{heading}</h3>
+        <h1>{value}</h1>
       </div>
     );
 }

@@ -15,6 +15,7 @@ import { SingleHabit } from "./components/SingleHabit/SingleHabit";
 import { HabitEditForm } from "./components/HabitEditForm/HabitEditForm";
 import { DeletedHabits } from "./components/DeletedHabits/DeletedHabits";
 import { AllHabits } from "./components/AllHabits/AllHabits";
+import { Page404 } from "./pages/Page404/Page404";
 
 function App() {
   const { isDark } = useTheme();
@@ -39,6 +40,7 @@ function App() {
           <Route path="habit/:habitId" element={<SingleHabit />} />
           <Route path="habit/edit/:habitId" element={<HabitEditForm />} />
         </Route>
+        <Route path="*" element={<Page404/>}/>
       </Routes>
       <Footer />
       <ToastContainer

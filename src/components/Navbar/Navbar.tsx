@@ -22,13 +22,9 @@ export const Navbar = () => {
           ></Player>
           <h1>Re-Habits</h1>
         </div>
-        <div>Nav_Search</div>
         <menu className={styles["nav-cta"]}>
           <li>
             <NavLink to="/home/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact">Contact Us</NavLink>
           </li>
           <li onClick={toggle}>
             <FontAwesomeIcon icon={isDark ? faSun : faMoon} size="lg" />

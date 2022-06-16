@@ -1,13 +1,12 @@
 import { useAppSelector } from "../../hooks/redux-hooks";
 import { Button } from "../Button/Button";
-import { HabitBox } from "../HabitBox/HabitBox";
-import { StatBox } from "../StatBox/StatBox";
+import { StatsList } from "../StatsList/StatsList";
 import { Link } from "react-router-dom";
 import styles from "./HomeStats.module.css";
+import { HabitList } from "../HabitList/HabitList";
 
 export const HomeStats = () => {
   const { firstName, lastName } = useAppSelector((state) => state.userData);
-  const habits = useAppSelector(state => state.habits.habits);
   return (
     <section className={styles["stats-main"]}>
       <div className={styles["stats-greeting"]}>
@@ -16,10 +15,7 @@ export const HomeStats = () => {
         </h2>
       </div>
       <div className={styles["stats-overview"]}>
-        <StatBox />
-        <StatBox />
-        <StatBox />
-        <StatBox />
+        <StatsList/>
       </div>
       <div className={styles["habits"]}>
         <div className={styles["habits-header"]}>
@@ -29,7 +25,7 @@ export const HomeStats = () => {
           </Button>
         </div>
         <div className={styles["habits-list"]}>
-          {habits.map(habit => <HabitBox key={habit._id} habit={habit}/>)}
+          <HabitList/>
         </div>
       </div>
     </section>
