@@ -40,3 +40,15 @@
     padding: 10px;
     width: 400px;
 }
+
+@media (max-width: 480px) {
+    .labels-header h2{
+        letter-spacing: unset;
+    }
+    .label-form{
+        flex-flow: column;
+    }
+    .label-form input{
+        width: 200px;
+    }
+}

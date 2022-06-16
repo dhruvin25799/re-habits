@@ -1,6 +1,6 @@
 import styles from "./HabitEditForm.module.css";
 import { useParams, useNavigate } from "react-router-dom";
-import { Button } from "../Button/Button";
+import { Button } from "../index";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import React, { useReducer, useState } from "react";
 import { IhabitInput, IsingleHabit } from "../../global/types";
@@ -51,7 +51,7 @@ export const HabitEditForm = () => {
       <section className={styles["edit-main"]}>
         <div className={styles["edit-header"]}>
           <h2>Edit Form</h2>
-          <Button>Cancel</Button>
+          <Button onClick={() => navigate(-1)}>Cancel</Button>
         </div>
         <form className={styles["habit-form-form"]} onSubmit={submitHandler}>
           <div className={styles["input-control"]}>
@@ -116,7 +116,7 @@ export const HabitEditForm = () => {
               ))}
             </ul>
           </div>
-          <Button>Add Habit</Button>
+          <Button>Edit Habit</Button>
         </form>
       </section>
     </>

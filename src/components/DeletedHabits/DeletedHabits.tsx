@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import { restoreHabitThunk } from "../../store/habit-slice";
-import { Button } from "../Button/Button";
+import { Button } from "../index";
 import styles from "./DeletedHabits.module.css";
 
 export const DeletedHabits = () => {

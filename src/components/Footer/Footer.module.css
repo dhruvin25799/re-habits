@@ -27,3 +27,9 @@
     text-decoration: none;
     color: var(--COLOR-text);
 }
+
+@media (max-width: 480px) {
+    .footer{
+        flex-flow: column;
+    }
+}

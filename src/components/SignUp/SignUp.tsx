@@ -1,5 +1,5 @@
 import styles from "./SignUp.module.css";
-import { Button } from "../Button/Button";
+import { Button } from "../index";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import React, { useEffect, useReducer } from "react";
 import { authActions, registerUserThunk } from "../../store/auth-slice";

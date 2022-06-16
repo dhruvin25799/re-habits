@@ -9,7 +9,7 @@ import {
   faTrashCan,
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "../Button/Button";
+import { Button } from "../index";
 import { deleteHabitThunk, markedAsDoneThunk } from "../../store/habit-slice";
 import { toast } from "react-toastify";
 

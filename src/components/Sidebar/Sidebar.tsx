@@ -11,9 +11,11 @@ import {
 import { NavLink } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import { logout } from "../../helpers/logout";
+import { useState } from "react";
 
 export const Sidebar = () => {
   const dispatch = useAppDispatch();
+  const [toggle, setToggle] = useState(false);
   return (
     <aside className={styles["sidebar"]}>
       <menu className={styles["sidebar-links"]}>

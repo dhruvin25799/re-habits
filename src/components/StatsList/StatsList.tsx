@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../hooks/redux-hooks";
-import { StatBox } from "../StatBox/StatBox";
+import { StatBox } from "../index";
 export const StatsList = () => {
   const habits = useAppSelector((state) => state.habits.habits);
   const date = new Date();

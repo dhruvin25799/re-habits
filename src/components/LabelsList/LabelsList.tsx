@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import { addLabelThunk, deleteLabelThunk } from "../../store/habit-slice";
-import { Button } from "../Button/Button";
-import { LabelBox } from "../LabelBox/LabelBox";
+import { Button, LabelBox } from "../index";
 import styles from "./LabelsList.module.css";
 
 export const LabelsList = () => {

@@ -76,3 +76,9 @@
 .label-checkbox-control li input{
     width: auto;
 }
+
+@media (max-width: 480px) {
+    .input-control input, .input-control select{
+        width: 200px;
+    }
+}

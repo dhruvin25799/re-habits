@@ -1,21 +1,21 @@
 import "./App.css";
-import { Navbar } from "./components/Navbar/Navbar";
+import {
+  Navbar,
+  HomeStats,
+  Footer,
+  RequiresAuth,
+  HabitForm,
+  LabelsList,
+  SingleHabit,
+  HabitEditForm,
+  DeletedHabits,
+  AllHabits,
+} from "./components/index";
 import { useTheme } from "./context/theme-context";
 import { Routes, Route } from "react-router-dom";
-import { LandingPage } from "./pages/LandingPage/LandingPage";
-import { Home } from "./pages/Home/Home";
-import { HomeStats } from "./components/HomeStats/HomeStats";
-import { Footer } from "./components/Footer/Footer";
-import { RequiresAuth } from "./components/RequiresAuth/RequiresAuth";
+import { Home, LandingPage, Page404 } from "./pages/index";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { HabitForm } from "./components/HabitForm/HabitForm";
-import { LabelsList } from "./components/LabelsList/LabelsList";
-import { SingleHabit } from "./components/SingleHabit/SingleHabit";
-import { HabitEditForm } from "./components/HabitEditForm/HabitEditForm";
-import { DeletedHabits } from "./components/DeletedHabits/DeletedHabits";
-import { AllHabits } from "./components/AllHabits/AllHabits";
-import { Page404 } from "./pages/Page404/Page404";
 
 function App() {
   const { isDark } = useTheme();
@@ -33,14 +33,14 @@ function App() {
           }
         >
           <Route path="" element={<HomeStats />} />
-          <Route path="habits" element={<AllHabits/>}/>
+          <Route path="habits" element={<AllHabits />} />
           <Route path="add" element={<HabitForm />} />
           <Route path="labels" element={<LabelsList />} />
           <Route path="trash" element={<DeletedHabits />} />
           <Route path="habit/:habitId" element={<SingleHabit />} />
           <Route path="habit/edit/:habitId" element={<HabitEditForm />} />
         </Route>
-        <Route path="*" element={<Page404/>}/>
+        <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />
       <ToastContainer

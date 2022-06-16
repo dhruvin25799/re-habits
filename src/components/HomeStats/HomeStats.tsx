@@ -1,9 +1,7 @@
 import { useAppSelector } from "../../hooks/redux-hooks";
-import { Button } from "../Button/Button";
-import { StatsList } from "../StatsList/StatsList";
+import { Button, StatsList, HabitList } from "../index";
 import { Link } from "react-router-dom";
 import styles from "./HomeStats.module.css";
-import { HabitList } from "../HabitList/HabitList";
 
 export const HomeStats = () => {
   const { firstName, lastName } = useAppSelector((state) => state.userData);
@@ -15,7 +13,7 @@ export const HomeStats = () => {
         </h2>
       </div>
       <div className={styles["stats-overview"]}>
-        <StatsList/>
+        <StatsList />
       </div>
       <div className={styles["habits"]}>
         <div className={styles["habits-header"]}>
@@ -25,7 +23,7 @@ export const HomeStats = () => {
           </Button>
         </div>
         <div className={styles["habits-list"]}>
-          <HabitList/>
+          <HabitList />
         </div>
       </div>
     </section>

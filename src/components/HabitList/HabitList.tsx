@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../hooks/redux-hooks";
-import { HabitBox } from "../HabitBox/HabitBox";
+import { HabitBox } from "../index";
 export const HabitList = () => {
   const habits = useAppSelector((state) => state.habits.habits);
   return (

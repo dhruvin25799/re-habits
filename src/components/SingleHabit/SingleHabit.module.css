@@ -85,3 +85,16 @@
 .calendar-tile svg{
     color: var(--COLOR-primary) !important;
 }
+
+@media (max-width: 480px) {
+    .habit-header{
+        flex-flow: column;
+    }
+    .habit-calendar{
+        width: 90% !important;
+    }
+
+    .habit-main button{
+        width: 90%;
+    }
+}

@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import { useAppSelector } from "../../hooks/redux-hooks";
-import { HabitBox } from "../HabitBox/HabitBox";
+import { HabitBox } from "../index";
 import styles from "./AllHabits.module.css";
 import {
   filterReducer,

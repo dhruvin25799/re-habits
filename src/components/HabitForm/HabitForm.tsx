@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from "react";
-import { Button } from "../Button/Button";
+import { Button, LoadingSpinner } from "../index";
 import styles from "./HabitForm.module.css";
 import {
   habitInputReducer,
@@ -7,7 +7,6 @@ import {
 } from "../../reducers/inputReducers";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import { addHabitThunk } from "../../store/habit-slice";
-import { LoadingSpinner } from "../LoadingSpinner/LoadinSpinner";
 
 export const HabitForm = () => {
   const [formError, setFormError] = useState(false);

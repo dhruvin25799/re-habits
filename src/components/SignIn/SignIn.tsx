@@ -1,5 +1,5 @@
 import styles from "../SignUp/SignUp.module.css";
-import { Button } from "../Button/Button";
+import { Button } from "../index";
 import React, { useEffect, useReducer } from "react";
 import {
   signInReducer,

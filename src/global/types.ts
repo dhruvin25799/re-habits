@@ -35,12 +35,18 @@ export type IsignUpState = {
 };
 
 export type IsignUpReducerAction = {
-  type: string;
+  type: "FNAME" | "LNAME" | "EMAIL" | "PASSWORD";
   payload: string;
 };
 
 export type IhabitFormReducerAction = {
-  type: string;
+  type:
+    | "NAME"
+    | "START_DATE"
+    | "END_DATE"
+    | "LABEL_ADD"
+    | "LABEL_REMOVE"
+    | "RESET";
   payload: string;
 };
 
@@ -50,7 +56,7 @@ export type IsignInState = {
 };
 
 export type IsignInReducerAction = {
-  type: string;
+  type: "EMAIL" | "PASSWORD";
   payload: string;
 };
 

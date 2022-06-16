@@ -24,3 +24,9 @@
 .intro-text h1{
     font-family: var(--FONT-brand);
 }
+
+@media (max-width: 480px) {
+    .landing-main{
+        flex-flow: column;
+    }
+}
