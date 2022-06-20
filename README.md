@@ -1,46 +1,75 @@
-# Getting Started with Create React App
+<h1 align="center"><b>Re-Habits</b></h1>
+<div align="center">Re-Habits is a React Habit Tracker app that lets you add and track your habits effectively and efficiently.</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## **Live App**
+To view the website live in action visit
 
-### `npm start`
+[Re-Habits](https://re-habits.netlify.app/)\
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+https://user-images.githubusercontent.com/47236093/174555138-9efdec24-c0b5-42ca-9651-81b5e663b438.mp4
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## **Functionality** 
+* Authentication
+  * Sign Up
+  * Login
+  * Logout
+* Labels
+  * Add Label
+  * Delete Label
+* Habits
+  * Add Habit -> Name, Labels, Start Date & End Date
+  * Edit Habit -> Name, Labels & End Date
+  * Delete Habit
+  * Restore Habit
+  * Mark as done for today
+  * Displays a Calendar with all the days that are marked as done with an icon.
+* Sorting and Filtering
+  * Sort Habits by their name, ascending or descending
+  * Filter Habits by their Labels.
+  * Sorting and filtering can be done together, example -> Filter by label and then sort by ascending.
+* Stats
+  * Completed -> Habits that are active for the day and marked as completed for the day.
+  * Pending -> Habits that are active for the day but not marked as completed.
+* Theme
+  * Dark Mode and light mode can be toggled from the icon on the navbar
+* 404
+* Responsiveness
+  * All pages/components are made responsive for mobile screens (Width < 480px)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## **Backend** 
+Backend for this app is a NodeJS express backend serving APIs and is deployed on Cyclic.
+The backend API is accessed through a proxy mentioned in package.json.
+All authentication, CRUD operations are being done through the backend API.
+* Github Repo : [Server](https://github.com/dhruvin25799/server-re-habits)
+* Live API : [API](https://tasty-rose-tick.cyclic.app/)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## **How to run this app**
+To run this app locally on your machine, clone the repo to your local machine.\
+In the project directory, you can run\
+`npm start`\
+This will start the app in development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.\
+Make sure you have access to internet to make use of the API call inside the App.
+TO also run the API locally, update proxy in package.json with you local API address.
+Also checkout the docs for [Server](https://github.com/dhruvin25799/server-re-habits)) for more info on how to deploy API locally.
