@@ -32,7 +32,10 @@ export const addLabelThunk = createAsyncThunk(
         return response.data;
       }
     } catch (err: any) {
-      rejectWithValue(err.response.data.error);
+      if (err.response.data.error) {
+        return rejectWithValue(err.response.data.error);
+      }
+      return rejectWithValue("Something went wrong");
     }
   }
 );
@@ -53,7 +56,10 @@ export const deleteLabelThunk = createAsyncThunk(
         return response.data;
       }
     } catch (err: any) {
-      rejectWithValue(err.response.data.error);
+      if (err.response.data.error) {
+        return rejectWithValue(err.response.data.error);
+      }
+      return rejectWithValue("Something went wrong");
     }
   }
 );
@@ -80,7 +86,10 @@ export const addHabitThunk = createAsyncThunk(
         return response.data.habits;
       }
     } catch (err: any) {
-      rejectWithValue(err.response.data.error);
+      if (err.response.data.error) {
+        return rejectWithValue(err.response.data.error);
+      }
+      return rejectWithValue("Something went wrong");
     }
   }
 );
@@ -93,7 +102,7 @@ export const markedAsDoneThunk = createAsyncThunk(
   ) => {
     try {
       const date = new Date();
-      date.setHours(0,0,0,0);
+      date.setHours(0, 0, 0, 0);
       const response = await axios.post(
         "/api/habits/done/" + habit._id,
         {
@@ -109,7 +118,10 @@ export const markedAsDoneThunk = createAsyncThunk(
         return response.data.habits;
       }
     } catch (err: any) {
-      rejectWithValue(err.response.data.error);
+      if (err.response.data.error) {
+        return rejectWithValue(err.response.data.error);
+      }
+      return rejectWithValue("Something went wrong");
     }
   }
 );
@@ -136,7 +148,10 @@ export const editHabitThunk = createAsyncThunk(
         return response.data.habits;
       }
     } catch (err: any) {
-      rejectWithValue(err.response.data.error);
+      if (err.response.data.error) {
+        return rejectWithValue(err.response.data.error);
+      }
+      return rejectWithValue("Something went wrong");
     }
   }
 );
@@ -161,7 +176,10 @@ export const deleteHabitThunk = createAsyncThunk(
         return response.data;
       }
     } catch (err: any) {
-      rejectWithValue(err.response.data.error);
+      if (err.response.data.error) {
+        return rejectWithValue(err.response.data.error);
+      }
+      return rejectWithValue("Something went wrong");
     }
   }
 );
@@ -186,7 +204,10 @@ export const restoreHabitThunk = createAsyncThunk(
         return response.data;
       }
     } catch (err: any) {
-      rejectWithValue(err.response.data.error);
+      if (err.response.data.error) {
+        return rejectWithValue(err.response.data.error);
+      }
+      return rejectWithValue("Something went wrong");
     }
   }
 );

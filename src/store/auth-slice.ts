@@ -33,7 +33,10 @@ export const registerUserThunk = createAsyncThunk(
         return response.data;
       }
     } catch (err: any) {
-      return rejectWithValue(err.response.data.error);
+      if (err.response.data.error) {
+        return rejectWithValue(err.response.data.error);
+      }
+      return rejectWithValue("Something went wrong");
     }
   }
 );
@@ -58,7 +61,10 @@ export const loginUserThunk = createAsyncThunk(
         return response.data;
       }
     } catch (err: any) {
-      return rejectWithValue(err.response.data.error);
+      if (err.response.data.error) {
+        return rejectWithValue(err.response.data.error);
+      }
+      return rejectWithValue("Something went wrong");
     }
   }
 );
