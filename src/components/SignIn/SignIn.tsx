@@ -1,5 +1,5 @@
 import styles from "../SignUp/SignUp.module.css";
-import { Button } from "../index";
+import { Button, LoadingSpinner } from "../index";
 import React, { useEffect, useReducer } from "react";
 import {
   signInReducer,
@@ -33,42 +33,48 @@ export const SignIn = ({ toggle }: Props) => {
   }, [loginStatus, navigate, dispatch]);
   return (
     <>
-      <div className={styles["sign-in"]}>
-        <h3>Sign In</h3>
-        <form className={styles["input-form"]} onSubmit={submitHandler}>
-          <div className={styles["input-control"]}>
-            <input
-              type="email"
-              placeholder="Email"
-              required
-              value={signInInputState.email}
-              onChange={(e) =>
-                signInInputDispatch({ type: "EMAIL", payload: e.target.value })
-              }
-            />
+      {loginStatus === "pending" && <LoadingSpinner />}
+      {loginStatus !== "pending" && (
+        <div className={styles["sign-in"]}>
+          <h3>Sign In</h3>
+          <form className={styles["input-form"]} onSubmit={submitHandler}>
+            <div className={styles["input-control"]}>
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                value={signInInputState.email}
+                onChange={(e) =>
+                  signInInputDispatch({
+                    type: "EMAIL",
+                    payload: e.target.value,
+                  })
+                }
+              />
+            </div>
+            <div className={styles["input-control"]}>
+              <input
+                type="password"
+                placeholder="Password"
+                required
+                value={signInInputState.password}
+                onChange={(e) =>
+                  signInInputDispatch({
+                    type: "PASSWORD",
+                    payload: e.target.value,
+                  })
+                }
+              />
+            </div>
+            <Button>Log In</Button>
+          </form>
+          <div>
+            <Button type="link" onClick={toggle}>
+              Don't have an account?
+            </Button>
           </div>
-          <div className={styles["input-control"]}>
-            <input
-              type="password"
-              placeholder="Password"
-              required
-              value={signInInputState.password}
-              onChange={(e) =>
-                signInInputDispatch({
-                  type: "PASSWORD",
-                  payload: e.target.value,
-                })
-              }
-            />
-          </div>
-          <Button>Log In</Button>
-        </form>
-        <div>
-          <Button type="link" onClick={toggle}>
-            Don't have an account?
-          </Button>
         </div>
-      </div>
+      )}
     </>
   );
 };
