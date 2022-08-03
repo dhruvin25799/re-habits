@@ -56,7 +56,7 @@ export type IsignInState = {
 };
 
 export type IsignInReducerAction = {
-  type: "EMAIL" | "PASSWORD";
+  type: "EMAIL" | "PASSWORD" | "DUMMY";
   payload: string;
 };
 

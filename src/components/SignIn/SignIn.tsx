@@ -67,6 +67,13 @@ export const SignIn = ({ toggle }: Props) => {
               />
             </div>
             <Button>Log In</Button>
+            <Button
+              onClick={() =>
+                signInInputDispatch({ type: "DUMMY", payload: "" })
+              }
+            >
+              Log In with dummy data
+            </Button>
           </form>
           <div>
             <Button type="link" onClick={toggle}>
