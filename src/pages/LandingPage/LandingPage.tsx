@@ -31,7 +31,7 @@ export const LandingPage = () => {
           </div>
         </section>
         <section>
-          {onSignUp ? (
+          {!onSignUp ? (
             <SignUp toggle={toggleSignIn} />
           ) : (
             <SignIn toggle={toggleSignIn} />
